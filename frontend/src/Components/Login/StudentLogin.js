@@ -13,7 +13,6 @@ const StudentLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    alert(`${username}, ${password}`)
     axios.get(`/student/login/${username}/${password}`)
       .then(response => {
         if (response.data) {

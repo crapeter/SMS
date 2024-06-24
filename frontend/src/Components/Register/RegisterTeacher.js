@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom"
 import { Form } from 'react-bootstrap';
 import axios from 'axios'
+import './RegisterTeacher.css'
 
 const StudentLogin = () => {
   const [email, setEmail] = useState('')
@@ -23,11 +24,11 @@ const StudentLogin = () => {
   }
 
   const goBack = () => {
-    nav(`/`)
+    nav("/teacher/login")
   }
 
   return (
-    <div className='top_stud_div'>
+    <div className='top_teach_div'>
       <div className='StudentLogin'>
         <h2 className='login_text'>Login</h2>
         <Form>

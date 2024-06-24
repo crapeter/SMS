@@ -1,8 +1,17 @@
 .container {
   text-align: center;
+  height: 100vh;
+  background-color: #87CEEB;
 }
 
 .its_flexing_time {
   display: flex;
   justify-content: center;
 }
+
+.list {
+  list-style-type: none;
+}
+
+/* .list p { */
+/* } */
