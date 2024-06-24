@@ -129,5 +129,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# gradle files
-.gradle/
+# other files
+PostgreSQL_SMS/.gradle/
+node_modules/
+frontend/node_modules/
