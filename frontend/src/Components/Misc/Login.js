@@ -1,0 +1,31 @@
+import React from "react"
+import { Button } from 'react-bootstrap'
+import { useNavigate } from "react-router-dom"
+import "./Login.css"
+
+const Logout = () => {
+  const nav = useNavigate()
+
+  const teacherLogin = (event) => {
+    event.preventDefault()
+    nav("/teacher/login")
+  }
+
+  const studentLogin = (event) => {
+    event.preventDefault()
+    nav("/student/login")
+  }
+
+  return (
+    <div className="login_button">
+      <Button onClick={teacherLogin} className="actual_login_button_for_real">
+        Teacher Login
+      </Button>
+      <Button onClick={studentLogin} className="actual_login_button_for_real">
+        Student Login
+      </Button>
+    </div>
+  )
+}
+
+export default Logout

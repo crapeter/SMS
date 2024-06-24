@@ -1,0 +1,44 @@
+.we_da_top_row {
+  height: 100vh;
+  background-image: linear-gradient(to bottom right, red, blue);
+}
+
+.register_student_button,
+.actual_logout_button {
+  background-color: black;
+}
+
+.top_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.students_i_guess {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 400px;
+  max-width: 35%;
+  background-color: #e9e9e9;
+  padding: 5px;
+  margin: 10px;
+}
+
+.stud_list {
+  list-style-type: none;
+}
+
+.stud_list li {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.stud_list li img {
+  margin-right: 10px;
+}
+
+.stud_list li a {
+  text-decoration: none;
+  color: inherit;
+}

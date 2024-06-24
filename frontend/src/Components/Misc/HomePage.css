@@ -1,0 +1,8 @@
+.container {
+  text-align: center;
+}
+
+.its_flexing_time {
+  display: flex;
+  justify-content: center;
+}

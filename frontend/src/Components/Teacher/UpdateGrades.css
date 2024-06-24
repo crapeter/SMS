@@ -1,0 +1,65 @@
+.the_very_toppest_div {
+  height: 100vh;
+  background-image: linear-gradient(to bottom left, #0309a8, #00c4a7);
+}
+
+.not_the_very_toppest_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.update_buttons_div {
+  display: flex;
+  margin-top: 15px;
+}
+
+.update_buttons {
+  background-color: blue;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.Form {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.Form.Group {
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  display: block;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 10px;
+  padding-top: 5px;
+}
+
+.formControl {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.third_top_div {
+  padding: 20px;
+  margin: 10px;
+  max-height: 50%;
+  background-color: white;
+  border-radius: 8px;
+}

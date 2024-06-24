@@ -1,0 +1,46 @@
+.im_the_highest_div {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-image: linear-gradient(to bottom left, #0309a8, #00c4a7);
+}
+
+.student_info {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  width: 400px;
+  max-width: 35%;
+  background-color: white;
+}
+
+.go_to_update_grades_page_button,
+.return_to_teach_but {
+  background-color: blue;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  display: inline-block;
+  padding: 12px 24px;
+  cursor: pointer;
+  margin: 0 3px;
+}
+
+.student_info h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.info {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.flex_time {
+  display: flex;
+  justify-content: space-between;
+}

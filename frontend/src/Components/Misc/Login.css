@@ -1,0 +1,12 @@
+.actual_login_button_for_real {
+  background-color: blue;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  cursor: pointer;
+}

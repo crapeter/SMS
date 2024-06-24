@@ -1,0 +1,27 @@
+.im_the_highest_div {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-image: linear-gradient(to bottom left, #0309a8, #00c4a7);
+}
+
+.student_info {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  width: 400px;
+  max-width: 35%;
+  background-color: white;
+}
+
+.student_info h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.info {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
