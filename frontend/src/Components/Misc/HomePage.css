@@ -9,9 +9,20 @@
   justify-content: center;
 }
 
-.list {
-  list-style-type: none;
+.second_container {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  position: fixed;
+  top: 63px;
+  left: 0;
 }
 
-/* .list p { */
-/* } */
+.info_text {
+  padding: 0.75em;
+  text-align: left;
+  background-color: #ebedf0;
+  border: 2px solid black;
+  border-radius: 5px;
+  max-width: 800px;
+}

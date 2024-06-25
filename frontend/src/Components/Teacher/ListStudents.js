@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom"
 import { useAuth } from "../Misc/AuthContext"
 import RegisterStudent from '../Misc/ToRegisterStudent'
 import Logout from '../Misc/Logout'
+import Resign from './Resign'
 import './ListStudents.css'
 import axios from 'axios'
 
@@ -39,6 +40,7 @@ const ListStudents = () => {
             <RegisterStudent email={email} />
             <Logout />
           </div>
+          <Resign />
           <div className='students_i_guess'>
             <h1>Students</h1>
             <ul className='stud_list'>

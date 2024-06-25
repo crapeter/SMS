@@ -17,19 +17,21 @@ function App() {
   return (
     <AuthProvider>
       <div className="App">
-        <BrowserRouter>
-          <Routes>
-            <Route exact path="/" Component={Home_Page} />
-            <Route exact path="/teacher/login" Component={Teacher_Login} />
-            <Route exact path="/teacher/list/:email/:teacherID" Component={Student_List} />
-            <Route exact path="/teacher/update/student/:email/:teacherID/:username" Component={Update_Student} />
-            <Route exact path="/teacher/update/student/grades/:email/:teacherID/:username" Component={Update_Grades} />
-            <Route exact path="/register/teacher" Component={Register_Teacher} />
-            <Route exact path="/register/student/:email" Component={Register_Student} />
-            <Route exact path="/student/login" Component={Student_Login} />
-            <Route exact path="/student/info/:username" Component={Student_Info} />
-          </Routes>
-        </BrowserRouter>
+        <div className='test'>
+          <BrowserRouter>
+            <Routes>
+              <Route exact path="/" Component={Home_Page} />
+              <Route exact path="/teacher/login" Component={Teacher_Login} />
+              <Route exact path="/teacher/list/:email/:teacherID" Component={Student_List} />
+              <Route exact path="/teacher/update/student/:email/:teacherID/:username" Component={Update_Student} />
+              <Route exact path="/teacher/update/student/grades/:email/:teacherID/:username" Component={Update_Grades} />
+              <Route exact path="/register/teacher" Component={Register_Teacher} />
+              <Route exact path="/register/student/:email" Component={Register_Student} />
+              <Route exact path="/student/login" Component={Student_Login} />
+              <Route exact path="/student/info/:username" Component={Student_Info} />
+            </Routes>
+          </BrowserRouter>
+        </div>
       </div>
     </AuthProvider>
   );

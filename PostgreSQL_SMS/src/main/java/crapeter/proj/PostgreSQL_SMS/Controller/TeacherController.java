@@ -108,11 +108,9 @@ public class TeacherController {
     return ResponseEntity.ok("Student removed from teacher successfully");
   }
 
-  @DeleteMapping("/resign")
-  public ResponseEntity<String> resign(@RequestParam String email) {
+  @DeleteMapping("/resign/{email}")
+  public ResponseEntity<Boolean> resign(@PathVariable String email) {
     boolean canResign = teacherService.resign(email);
-    if (!canResign)
-      return ResponseEntity.badRequest().body("Teacher has students");
-    return ResponseEntity.ok("Teacher resigned successfully");
+    return ResponseEntity.ok(canResign);
   }
 }
