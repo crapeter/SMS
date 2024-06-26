@@ -19,7 +19,8 @@ const ListStudents = () => {
   const getStudents = () => {
     axios.get(`/teacher/get/students/${email}`)
       .then(response => {
-        setStudents(response.data)
+        const sortedStudents = response.data.sort((a, b) => a.lastName.localeCompare(b.lastName));
+        setStudents(sortedStudents);
       })
       .catch(e => alert(e))
   }

@@ -1,6 +1,6 @@
 .we_da_top_row {
   height: 100vh;
-  background-image: linear-gradient(to bottom right, #960000, blue);
+  background-image: linear-gradient(to bottom right, red, blue);
 }
 
 .register_student_button,

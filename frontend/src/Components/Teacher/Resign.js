@@ -20,6 +20,7 @@ const Logout = () => {
         if (response.data === true) {
           nav(`/`)
         } else {
+          alert("Teacher can't resign while still having students")
           window.location.reload()
         }
       })

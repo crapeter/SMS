@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom"
 import { Form } from 'react-bootstrap';
 import axios from 'axios'
+import './RegisterStudent.css'
 
 const StudentLogin = () => {
   const [username, setUsername] = useState('')

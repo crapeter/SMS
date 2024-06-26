@@ -2,7 +2,7 @@
   display: grid;
   place-items: center;
   height: 100vh;
-  background-image: linear-gradient(to bottom left, #0309a8, #00c4a7);
+  background-image: linear-gradient(to bottom right, red, blue);
 }
 
 .student_info {

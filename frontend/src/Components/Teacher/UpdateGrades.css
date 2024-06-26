@@ -1,6 +1,6 @@
 .the_very_toppest_div {
   height: 100vh;
-  background-image: linear-gradient(to bottom left, #0309a8, #00c4a7);
+  background-image: linear-gradient(to bottom right, red, blue);
 }
 
 .not_the_very_toppest_div {

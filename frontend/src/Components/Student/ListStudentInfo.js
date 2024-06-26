@@ -35,7 +35,7 @@ const ListStudentInfo = () => {
   return (
     <div>
       {isLoggedIn ? (
-        <div className="im_the_highest_div">
+        <div className="im_the_highest_stud_div">
           <div className="student_info">
             <h1>{student.firstName} {student.lastName}</h1>
             <p className="info">Math: {student.mathGrade}</p>

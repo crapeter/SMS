@@ -31,7 +31,7 @@ const StudentLogin = () => {
   }
 
   return (
-    <div className='top_stud_div'>
+    <div className='im_the_highest_stud_div'>
       <div className='StudentLogin'>
         <h2 className='login_text'>Login</h2>
         <Form>
