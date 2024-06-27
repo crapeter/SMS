@@ -40,7 +40,7 @@ const StudentLogin = () => {
   return (
     <div className='top_stud_div'>
       <div className='StudentLogin'>
-        <h2 className='login_text'>Login</h2>
+        <h2 className='login_text'>Enroll new student</h2>
         <Form>
           <Form.Group controlId="formBasicFirstName">
             <Form.Control
