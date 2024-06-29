@@ -13,7 +13,7 @@ const StudentLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    axios.post(`/teacher/add`, {
+    axios.post(`/api/teacher/add`, {
       FirstName: FirstName,
       LastName: LastName,
       email: email,

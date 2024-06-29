@@ -8,6 +8,10 @@ import crapeter.proj.PostgreSQL_SMS.Repo.TeacherRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +23,12 @@ public class TeacherService {
   @Autowired
   private StudentRepo studentRepo;
 
+  private static final String ALGORITHM = "AES/CBC/PKCS5Padding";
+  private static final String SECRET_KEY = "0123456789abcdef";
+  private static final String INIT_VECTOR = "abcdef9876543210";
+
   public Teacher addTeacher(Teacher teacher) {
+    teacher.setPassword(encrypt(teacher.getPassword()));
     return teacherRepo.save(teacher);
   }
 
@@ -47,13 +56,14 @@ public class TeacherService {
 
   public boolean authenticateTeacher(String email, String password) {
     Teacher teacher = teacherRepo.findByEmail(email);
-    return teacher.getPassword().equals(password);
+    return teacher.getPassword().equals(encrypt(password));
   }
 
   public boolean addNewStudentToTeacher(String email, Student student) {
     Long teacherID = teacherRepo.findByEmail(email).getTeacherID();
     Optional<Teacher> optionalTeacher = teacherRepo.findById(teacherID);
     if (optionalTeacher.isPresent()) {
+      student.setPassword(encrypt(student.getPassword()));
       student.setTeacher(optionalTeacher.get());
       studentRepo.save(student);
       return true;
@@ -95,5 +105,20 @@ public class TeacherService {
     Teacher teacher = teacherRepo.findByEmail(email);
     teacher.setLastName(newLastName);
     teacherRepo.save(teacher);
+  }
+
+  private String encrypt(String password) {
+    try {
+      IvParameterSpec iv = new IvParameterSpec(INIT_VECTOR.getBytes());
+      SecretKeySpec secretKeySpec = new SecretKeySpec(SECRET_KEY.getBytes(), "AES");
+
+      Cipher cipher = Cipher.getInstance(ALGORITHM);
+      cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, iv);
+
+      byte[] encrypted = cipher.doFinal(password.getBytes());
+      return Base64.getEncoder().encodeToString(encrypted);
+    } catch (Exception ignored) {
+    }
+    return null;
   }
 }

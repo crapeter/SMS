@@ -17,7 +17,7 @@ const ListStudents = () => {
   }, [])
 
   const getStudents = () => {
-    axios.get(`/teacher/get/students/${email}`)
+    axios.get(`/api/teacher/get/students/${email}`)
       .then(response => {
         const sortedStudents = response.data.sort((a, b) => a.lastName.localeCompare(b.lastName));
         setStudents(sortedStudents);
@@ -26,7 +26,7 @@ const ListStudents = () => {
   }
 
   const handleDelete = (username) => {
-    axios.delete(`/teacher/remove/student?teacherEmail=${email}&studentUsername=${username}`)
+    axios.delete(`/api/teacher/remove/student?teacherEmail=${email}&studentUsername=${username}`)
       .then(_ => {
         window.location.reload()
       })

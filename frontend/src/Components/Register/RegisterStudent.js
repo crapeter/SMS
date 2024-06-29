@@ -14,7 +14,7 @@ const StudentLogin = () => {
   const nav = useNavigate()
 
   useEffect(() => {
-    axios.get(`/teacher/get/id?email=${email}`)
+    axios.get(`/api/teacher/get/id?email=${email}`)
       .then(response => {
         setTeacherID(response.data)
       })
@@ -23,7 +23,7 @@ const StudentLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    axios.post(`/teacher/add/student/${email}`, {
+    axios.post(`/api/teacher/add/student/${email}`, {
       FirstName: FirstName,
       LastName: LastName,
       username: username,

@@ -11,6 +11,13 @@
   height: 100vh;
 }
 
+.third_top_div {
+  padding: 20px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 8px;
+}
+
 .update_buttons_div {
   display: flex;
   margin-top: 15px;
@@ -29,14 +36,10 @@
   cursor: pointer;
 }
 
-.Form {
+.form {
   width: 100%;
   max-width: 450px;
   margin: 0 auto;
-}
-
-.Form.Group {
-  margin-bottom: 20px;
 }
 
 .formLabel {
@@ -54,12 +57,4 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-}
-
-.third_top_div {
-  padding: 20px;
-  margin: 10px;
-  max-height: 50%;
-  background-color: white;
-  border-radius: 8px;
 }

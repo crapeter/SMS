@@ -14,7 +14,7 @@ const Logout = () => {
 
   const handleRetire = (event) => {
     event.preventDefault()
-    axios.delete(`/teacher/resign/${email}`)
+    axios.delete(`/api/teacher/resign/${email}`)
       .then(response => {
         handleClose()
         if (response.data === true) {

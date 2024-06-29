@@ -16,7 +16,7 @@ const StudentLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    axios.get(`/teacher/login/${email}/${password}`)
+    axios.get(`/api/teacher/login/${email}/${password}`)
       .then(response => {
         if (Number.isInteger(response.data)) {
           setIsLoggedIn(true)

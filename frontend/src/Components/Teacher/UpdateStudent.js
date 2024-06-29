@@ -26,7 +26,7 @@ const UpdateStudent = () => {
   }, [username])
 
   const fecthStudentInfo = () => {
-    axios.get(`/student/info/${username}`)
+    axios.get(`/api/student/info/${username}`)
       .then(response => {
         setStudent(response.data)
       })
@@ -34,7 +34,7 @@ const UpdateStudent = () => {
   }
 
   const goBack = () => {
-    axios.get(`/teacher/get/email?teacherID=${teacherID}`)
+    axios.get(`/api/teacher/get/email?teacherID=${teacherID}`)
       .then(response => {
         nav(`/teacher/list/${response.data}/${teacherID}`)
       })

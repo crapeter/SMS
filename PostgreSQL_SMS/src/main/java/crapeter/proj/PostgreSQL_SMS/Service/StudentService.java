@@ -9,6 +9,10 @@ import crapeter.proj.PostgreSQL_SMS.Repo.TeacherRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
 import java.util.Objects;
 
 @Service
@@ -19,9 +23,13 @@ public class StudentService {
   @Autowired
   private TeacherRepo teacherRepo;
 
+  private static final String ALGORITHM = "AES/CBC/PKCS5Padding";
+  private static final String SECRET_KEY = "0123456789abcdef";
+  private static final String INIT_VECTOR = "abcdef9876543210";
+
   public boolean authenticateStudent(String username, String password) {
     Student student = studentRepo.findByUsername(username);
-    return student.getPassword().equals(password);
+    return student.getPassword().equals(encrypt(password));
   }
 
   public StudentInfoDTO getStudentInfo(String username) {
@@ -64,5 +72,20 @@ public class StudentService {
       return;
     student.setLastName(newLastName);
     studentRepo.save(student);
+  }
+
+  private String encrypt(String password) {
+    try {
+      IvParameterSpec iv = new IvParameterSpec(INIT_VECTOR.getBytes());
+      SecretKeySpec secretKeySpec = new SecretKeySpec(SECRET_KEY.getBytes(), "AES");
+
+      Cipher cipher = Cipher.getInstance(ALGORITHM);
+      cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, iv);
+
+      byte[] encrypted = cipher.doFinal(password.getBytes());
+      return Base64.getEncoder().encodeToString(encrypted);
+    } catch (Exception ignored) {
+    }
+    return null;
   }
 }

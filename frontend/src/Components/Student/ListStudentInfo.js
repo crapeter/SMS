@@ -25,7 +25,7 @@ const ListStudentInfo = () => {
   }, [username])
 
   const fecthStudentInfo = () => {
-    axios.get(`/student/info/${username}`)
+    axios.get(`/api/student/info/${username}`)
       .then(response => {
         setStudent(response.data)
       })

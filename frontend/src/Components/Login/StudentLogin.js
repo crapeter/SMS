@@ -13,7 +13,7 @@ const StudentLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    axios.get(`/student/login/${username}/${password}`)
+    axios.get(`/api/student/login/${username}/${password}`)
       .then(response => {
         if (response.data) {
           setIsLoggedIn(true)

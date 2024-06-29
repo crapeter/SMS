@@ -30,7 +30,7 @@ const UpdateGrades = () => {
   }, [username])
 
   const fecthStudentInfo = () => {
-    axios.get(`/student/info/${username}`)
+    axios.get(`/api/student/info/${username}`)
       .then(response => {
         setStudent(response.data)
       })
@@ -44,7 +44,7 @@ const UpdateGrades = () => {
     let his = historyGrade.trim() === '' ? student.historyGrade : historyGrade
     let read = readingGrade.trim() === '' ? student.readingGrade : readingGrade
 
-    axios.post(`/teacher/update/grades/${email}/${username}`, {
+    axios.post(`/api/teacher/update/grades/${email}/${username}`, {
       math: math,
       ela: ela,
       science: sci,
@@ -67,8 +67,8 @@ const UpdateGrades = () => {
       <div className="not_the_very_toppest_div">
         <div className="third_top_div">
           <h1>Update Grades</h1>
-          <Form>
-            <Form.Group controlId="mathGrade">
+          <Form className="form">
+            <Form.Group className="formGroup" controlId="mathGrade">
               <Form.Label className="formLabel">Math:</Form.Label>
               <Form.Control
                 type="text"
@@ -79,7 +79,7 @@ const UpdateGrades = () => {
               />
             </Form.Group>
 
-            <Form.Group controlId="elaGrade">
+            <Form.Group className="formGroup" controlId="elaGrade">
               <Form.Label className="formLabel">ELA:</Form.Label>
               <Form.Control
                 type="text"
@@ -90,7 +90,7 @@ const UpdateGrades = () => {
               />
             </Form.Group>
 
-            <Form.Group controlId="scienceGrade">
+            <Form.Group className="formGroup" controlId="scienceGrade">
               <Form.Label className="formLabel">Science:</Form.Label>
               <Form.Control
                 type="text"
@@ -101,7 +101,7 @@ const UpdateGrades = () => {
               />
             </Form.Group>
 
-            <Form.Group controlId="historyGrade">
+            <Form.Group className="formGroup" controlId="historyGrade">
               <Form.Label className="formLabel">History:</Form.Label>
               <Form.Control
                 type="text"
@@ -112,7 +112,7 @@ const UpdateGrades = () => {
               />
             </Form.Group>
 
-            <Form.Group controlId="readingGrade">
+            <Form.Group className="formGroup" controlId="readingGrade">
               <Form.Label className="formLabel">Reading:</Form.Label>
               <Form.Control
                 type="text"
