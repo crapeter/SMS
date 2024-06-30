@@ -56,20 +56,12 @@ public class StudentService {
     studentRepo.delete(studentRepo.findByUsername(username));
   }
 
-  public void updateFirstName(String email, String username, String newFirstName) {
+  public void updateName(String email, String username, String newFirstName, String newLastName) {
     Teacher teacher = teacherRepo.findByEmail(email);
     Student student = studentRepo.findByUsername(username);
     if (!Objects.equals(student.getTeacher().getTeacherID(), teacher.getTeacherID()))
       return;
     student.setFirstName(newFirstName);
-    studentRepo.save(student);
-  }
-
-  public void updateLastName(String email, String username, String newLastName) {
-    Teacher teacher = teacherRepo.findByEmail(email);
-    Student student = studentRepo.findByUsername(username);
-    if (!Objects.equals(student.getTeacher().getTeacherID(), teacher.getTeacherID()))
-      return;
     student.setLastName(newLastName);
     studentRepo.save(student);
   }

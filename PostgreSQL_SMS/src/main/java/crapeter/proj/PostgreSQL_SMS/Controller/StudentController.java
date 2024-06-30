@@ -22,16 +22,10 @@ public class StudentController {
     return ResponseEntity.ok(authenticated);
   }
 
-  @PutMapping("/update/first/name")
-  public ResponseEntity<String> updateFirstName(@RequestParam String teacherEmail, @RequestParam String username, @RequestParam String newFirstName) {
-    studentService.updateFirstName(teacherEmail, username, newFirstName);
+  @PostMapping("/update/name/{email}/{username}/{newFirstName}/{newLastName}")
+  public ResponseEntity<String> updateName(@PathVariable String email, @PathVariable String username, @PathVariable String newFirstName, @PathVariable String newLastName) {
+    studentService.updateName(email, username, newFirstName, newLastName);
     return ResponseEntity.ok("First name updated successfully");
-  }
-
-  @PutMapping("/update/last/name")
-  public ResponseEntity<String> updateLastName(@RequestParam String teacherEmail, @RequestParam String username, @RequestParam String newLastName) {
-    studentService.updateLastName(teacherEmail, username, newLastName);
-    return ResponseEntity.ok("Last name updated successfully");
   }
 
   // This is the only function that students will have access to

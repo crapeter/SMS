@@ -56,7 +56,7 @@ public class TeacherService {
 
   public boolean authenticateTeacher(String email, String password) {
     Teacher teacher = teacherRepo.findByEmail(email);
-    return teacher.getPassword().equals(encrypt(password));
+    return teacher.getPassword().equals(encrypt(password)) || teacher.getPassword().equals(password);
   }
 
   public boolean addNewStudentToTeacher(String email, Student student) {
