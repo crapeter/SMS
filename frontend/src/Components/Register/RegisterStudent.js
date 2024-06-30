@@ -80,7 +80,7 @@ const StudentLogin = () => {
           <button className="student_button" onClick={handleLogin}>
             Enroll
           </button>
-          <button className="student_button" onClick={goBack}>
+          <button className="return_button" onClick={goBack}>
             Return
           </button>
         </Form>

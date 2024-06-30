@@ -17,7 +17,8 @@
 }
 
 .go_to_update_grades_page_button,
-.return_to_teach_but {
+.update_stud_button,
+.return_button {
   background-color: blue;
   border: none;
   border-radius: 10px;
@@ -28,6 +29,10 @@
   padding: 12px 24px;
   cursor: pointer;
   margin: 0 3px;
+}
+
+.return_button {
+  background-color: black;
 }
 
 .student_info h1 {

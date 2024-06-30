@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useAuth } from "../Misc/AuthContext"
 import UpdateGrades from '../Misc/ToUpdateGrades'
+import UpdateStudentName from './UpdateStudentName'
 import axios from "axios"
 import './UpdateStudent.css'
 
@@ -53,8 +54,9 @@ const UpdateStudent = () => {
             <p className="info">History: {student.historyGrade}</p>
             <p className="info">Reading: {student.readingGrade}</p>
             <div className="flex_time">
+              <UpdateStudentName fName={student.firstName} lName={student.lastName} email={email} username={username} />
               <UpdateGrades email={email} teacherID={teacherID} username={username} />
-              <button className="return_to_teach_but" onClick={goBack}>
+              <button className="return_button" onClick={goBack}>
                 Return
               </button>
             </div>

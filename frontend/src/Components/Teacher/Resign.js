@@ -58,12 +58,12 @@ const Logout = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <p className="separator">|</p>
           <Button variant="primary" type="submit" onClick={handleRetire}>
             Confirm
+          </Button>
+          <p className="separator">|</p>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
           </Button>
         </Modal.Footer>
       </Modal>

@@ -44,7 +44,7 @@ const UpdateGrades = () => {
     let his = historyGrade.trim() === '' ? student.historyGrade : historyGrade
     let read = readingGrade.trim() === '' ? student.readingGrade : readingGrade
 
-    axios.post(`/api/teacher/update/grades/${email}/${username}`, {
+    axios.post(`/api/teacher/update/grades/${email}/${student.username}`, {
       math: math,
       ela: ela,
       science: sci,
@@ -125,7 +125,7 @@ const UpdateGrades = () => {
           </Form>
           <div className="update_buttons_div">
             <button className="update_buttons" onClick={submitNewGrades}>Update</button>
-            <button className="update_buttons" onClick={goBack}>Return</button>
+            <button className="return_button" onClick={goBack}>Return</button>
           </div>
         </div>
       </div>

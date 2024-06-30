@@ -23,7 +23,8 @@
   border-radius: 4px;
 }
 
-.student_button {
+.student_button,
+.return_button {
   background-color: blue;
   border: none;
   border-radius: 10px;
@@ -34,4 +35,8 @@
   margin: 8px;
   padding: 12px 24px;
   cursor: pointer;
+}
+
+.return_button {
+  background-color: black;
 }

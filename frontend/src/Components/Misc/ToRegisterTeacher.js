@@ -1,6 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import "./ToRegisterStudent.css"
+import "./ToRegisterTeacher.css"
 
 const Logout = () => {
   const nav = useNavigate()
@@ -12,7 +12,7 @@ const Logout = () => {
 
   return (
     <div className="logout_button">
-      <button onClick={handleLogout} className="actual_login_button_for_real">
+      <button onClick={handleLogout} className="register_teacher_button">
         New Teacher Registration
       </button>
     </div>

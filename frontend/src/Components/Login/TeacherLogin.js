@@ -58,7 +58,7 @@ const StudentLogin = () => {
           <button className="teacher_button" type="submit" onClick={handleLogin}>
             Log in
           </button>
-          <button className="teacher_button" type="submit" onClick={goBack}>
+          <button className="return_button" type="submit" onClick={goBack}>
             Return
           </button>
           <RegisterTeacher />
