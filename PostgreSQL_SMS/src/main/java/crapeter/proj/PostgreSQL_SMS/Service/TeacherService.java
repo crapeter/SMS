@@ -95,14 +95,9 @@ public class TeacherService {
     return false;
   }
 
-  public void changeFirstName(String email, String newFirstName) {
+  public void changeName(String email, String newFirstName, String newLastName) {
     Teacher teacher = teacherRepo.findByEmail(email);
     teacher.setFirstName(newFirstName);
-    teacherRepo.save(teacher);
-  }
-
-  public void changeLastName(String email, String newLastName) {
-    Teacher teacher = teacherRepo.findByEmail(email);
     teacher.setLastName(newLastName);
     teacherRepo.save(teacher);
   }

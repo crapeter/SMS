@@ -71,6 +71,20 @@ public class TeacherController {
     return ResponseEntity.ok(result);
   }
 
+  @PostMapping("/move/student")
+  public ResponseEntity<String> moveStudentToTeacher(@RequestParam String username, @RequestParam String email) {
+    if (teacherService.moveStudentToTeacher(email, username))
+      return ResponseEntity.ok("Student moved to teacher successfully");
+    else
+      return ResponseEntity.notFound().build();
+  }
+
+  @PostMapping("/change/name")
+  public ResponseEntity<String> changeFirstName(@RequestParam String email, @RequestParam String newFirstName, @RequestParam String newLastName) {
+    teacherService.changeName(email, newFirstName, newLastName);
+    return ResponseEntity.ok("First name changed successfully");
+  }
+
   @GetMapping("/get/all")
   public List<Teacher> getTeacher() {
     return teacherService.getTeachers();
@@ -80,26 +94,6 @@ public class TeacherController {
   public List<StudentInfoDTO> getTeachersStudents(@PathVariable String email) {
     Long teacherID = teacherService.getTeacherID(email);
     return teacherService.listTeachersStudents(teacherID);
-  }
-
-  @PutMapping("/move/student")
-  public ResponseEntity<String> moveStudentToTeacher(@RequestParam String username, @RequestParam String email) {
-    if (teacherService.moveStudentToTeacher(email, username))
-      return ResponseEntity.ok("Student moved to teacher successfully");
-    else
-      return ResponseEntity.notFound().build();
-  }
-
-  @PutMapping("/change/firstName")
-  public ResponseEntity<String> changeFirstName(@RequestParam String email, @RequestParam String newFirstName) {
-    teacherService.changeFirstName(email, newFirstName);
-    return ResponseEntity.ok("First name changed successfully");
-  }
-
-  @PutMapping("/change/lastName")
-  public ResponseEntity<String> changeLastName(@RequestParam String email, @RequestParam String newLastName) {
-    teacherService.changeLastName(email, newLastName);
-    return ResponseEntity.ok("Last name changed successfully");
   }
 
   @DeleteMapping("/remove/student")
