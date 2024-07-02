@@ -4,3 +4,9 @@
   height: 100vh;
   background-image: linear-gradient(to bottom right, red, blue);
 }
+
+.RegisterStudent {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+}

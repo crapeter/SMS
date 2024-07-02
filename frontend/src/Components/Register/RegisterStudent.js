@@ -4,7 +4,7 @@ import { Form } from 'react-bootstrap';
 import axios from 'axios'
 import './RegisterStudent.css'
 
-const StudentLogin = () => {
+const RegisterStudent = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [FirstName, setFirstName] = useState('')
@@ -39,7 +39,7 @@ const StudentLogin = () => {
 
   return (
     <div className='top_stud_div'>
-      <div className='StudentLogin'>
+      <div className='RegisterStudent'>
         <h2 className='login_text'>Enroll new student</h2>
         <Form>
           <Form.Group controlId="formBasicFirstName">
@@ -89,5 +89,5 @@ const StudentLogin = () => {
   )
 }
 
-export default StudentLogin
+export default RegisterStudent
 
