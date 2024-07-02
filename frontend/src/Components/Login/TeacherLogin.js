@@ -8,7 +8,7 @@ import './TeacherLogin.css'
 import '../Misc/Logout.css'
 
 
-const StudentLogin = () => {
+const TeacherLogin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { setIsLoggedIn, setIsAdmin } = useAuth()
@@ -68,5 +68,5 @@ const StudentLogin = () => {
   )
 }
 
-export default StudentLogin
+export default TeacherLogin
 

@@ -2,6 +2,8 @@ package crapeter.proj.PostgreSQL_SMS.Service;
 
 import crapeter.proj.PostgreSQL_SMS.Model.Student;
 import crapeter.proj.PostgreSQL_SMS.Model.StudentInfoDTO;
+import crapeter.proj.PostgreSQL_SMS.Model.Teacher;
+import crapeter.proj.PostgreSQL_SMS.Model.TeacherInfoDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,5 +36,16 @@ public class InfoDTO_Service {
     studentInfoDTO.setHistoryGrade(student.getHistoryGrade());
     studentInfoDTO.setReadingGrade(student.getReadingGrade());
     return studentInfoDTO;
+  }
+
+  public static List<TeacherInfoDTO> removeTeachersPrivateInfo(List<Teacher> teachers) {
+    return teachers.stream().map(teacher -> {
+      TeacherInfoDTO teacherInfoDTO = new TeacherInfoDTO();
+      teacherInfoDTO.setFirstName(teacher.getFirstName());
+      teacherInfoDTO.setLastName(teacher.getLastName());
+      teacherInfoDTO.setEmail(teacher.getEmail());
+      return teacherInfoDTO;
+    })
+    .collect(Collectors.toList());
   }
 }

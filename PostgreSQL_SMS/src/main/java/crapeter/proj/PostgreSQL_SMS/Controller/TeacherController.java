@@ -3,7 +3,6 @@ package crapeter.proj.PostgreSQL_SMS.Controller;
 import crapeter.proj.PostgreSQL_SMS.GradeBook.GradeBook;
 import crapeter.proj.PostgreSQL_SMS.Model.Student;
 import crapeter.proj.PostgreSQL_SMS.Model.StudentInfoDTO;
-import crapeter.proj.PostgreSQL_SMS.Model.Teacher;
 import crapeter.proj.PostgreSQL_SMS.Service.StudentService;
 import crapeter.proj.PostgreSQL_SMS.Service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,16 +43,6 @@ public class TeacherController {
     return ResponseEntity.ok(email);
   }
 
-  // Pre-logging in
-  @PostMapping("/add")
-  public ResponseEntity<String> addTeacher(@RequestBody Teacher teacher) {
-    Teacher newTeacher = teacherService.addTeacher(teacher);
-    if (newTeacher != null) {
-      return ResponseEntity.ok("Teacher added successfully");
-    }
-    return ResponseEntity.notFound().build();
-  }
-
   // Post-logging in
   @PostMapping("/add/student/{email}")
   public ResponseEntity<String> addStudentToTeacher(@PathVariable String email, @RequestBody Student student) {
@@ -71,23 +60,10 @@ public class TeacherController {
     return ResponseEntity.ok(result);
   }
 
-  @PostMapping("/move/student")
-  public ResponseEntity<String> moveStudentToTeacher(@RequestParam String username, @RequestParam String email) {
-    if (teacherService.moveStudentToTeacher(email, username))
-      return ResponseEntity.ok("Student moved to teacher successfully");
-    else
-      return ResponseEntity.notFound().build();
-  }
-
   @PostMapping("/change/name")
   public ResponseEntity<String> changeFirstName(@RequestParam String email, @RequestParam String newFirstName, @RequestParam String newLastName) {
     teacherService.changeName(email, newFirstName, newLastName);
     return ResponseEntity.ok("First name changed successfully");
-  }
-
-  @GetMapping("/get/all")
-  public List<Teacher> getTeacher() {
-    return teacherService.getTeachers();
   }
 
   @GetMapping("/get/students/{email}")
@@ -100,11 +76,5 @@ public class TeacherController {
   public ResponseEntity<String> removeStudentFromTeacher(@RequestParam String teacherEmail, @RequestParam String studentUsername) {
     studentService.removeStudent(teacherEmail, studentUsername);
     return ResponseEntity.ok("Student removed from teacher successfully");
-  }
-
-  @DeleteMapping("/resign/{email}")
-  public ResponseEntity<Boolean> resign(@PathVariable String email) {
-    boolean canResign = teacherService.resign(email);
-    return ResponseEntity.ok(canResign);
   }
 }

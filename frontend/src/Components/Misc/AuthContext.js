@@ -11,6 +11,10 @@ export const AuthProvider = ({ children }) => {
     return localStorage.getItem('isAdmin') === 'true'
   })
 
+  const [isBoard, setIsBoard] = useState(() => {
+    return localStorage.getItem('isBoard') === 'true'
+  })
+
   useEffect(() => {
     localStorage.setItem('isLoggedIn', isLoggedIn)
   }, [isLoggedIn])
@@ -19,8 +23,12 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('isAdmin', isAdmin)
   }, [isAdmin])
 
+  useEffect(() => {
+    localStorage.setItem('isBoard', isBoard)
+  }, [isBoard])
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin }}>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin, isBoard, setIsBoard }}>
       {children}
     </AuthContext.Provider>
   )

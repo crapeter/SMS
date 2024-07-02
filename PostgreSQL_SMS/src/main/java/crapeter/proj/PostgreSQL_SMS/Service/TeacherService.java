@@ -27,11 +27,6 @@ public class TeacherService {
   private static final String SECRET_KEY = "0123456789abcdef";
   private static final String INIT_VECTOR = "abcdef9876543210";
 
-  public Teacher addTeacher(Teacher teacher) {
-    teacher.setPassword(encrypt(teacher.getPassword()));
-    return teacherRepo.save(teacher);
-  }
-
   public Long getTeacherID(String email) {
     return teacherRepo.findByEmail(email).getTeacherID();
   }
@@ -43,10 +38,6 @@ public class TeacherService {
 
   public String getTeacherPassword(String email) {
     return teacherRepo.findByEmail(email).getPassword();
-  }
-
-  public List<Teacher> getTeachers() {
-    return teacherRepo.findAll();
   }
 
   public List<StudentInfoDTO> listTeachersStudents(Long teacherID) {
@@ -66,30 +57,6 @@ public class TeacherService {
       student.setPassword(encrypt(student.getPassword()));
       student.setTeacher(optionalTeacher.get());
       studentRepo.save(student);
-      return true;
-    }
-    return false;
-  }
-
-  public boolean moveStudentToTeacher(String email, String username) {
-    Long teacherID = teacherRepo.findByEmail(email).getTeacherID();
-    Long studentID = studentRepo.findByUsername(username).getStudentID();
-    Optional<Teacher> optionalTeacher = teacherRepo.findById(teacherID);
-    Optional<Student> optionalStudent = studentRepo.findById(studentID);
-    if (optionalTeacher.isPresent() && optionalStudent.isPresent()) {
-      Student student = optionalStudent.get();
-      student.setTeacher(optionalTeacher.get());
-      studentRepo.save(student);
-      return true;
-    }
-    return false;
-  }
-
-  public boolean resign(String email) {
-    Teacher teacher = teacherRepo.findByEmail(email);
-    List<Student> teachersStudents = studentRepo.findByTeacher_TeacherID(teacher.getTeacherID());
-    if (teachersStudents.isEmpty()) {
-      teacherRepo.delete(teacher);
       return true;
     }
     return false;
