@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react"
 import { Modal, Button, Form } from 'react-bootstrap'
 import { useAuth } from "../Misc/AuthContext"
 import Logout from "../Misc/Logout"
+import Resign from "./Resign"
 import RegisterTeacher from "../Misc/ToRegisterTeacher"
 import axios from "axios"
 import './TeacherList.css'
 
-const TeacherList = () => {
+const TeacherList = ({ email, password }) => {
   const { isBoard } = useAuth()
   const [show, setShow] = useState(false)
   const [teachers, setTeacher] = useState([])
@@ -66,6 +67,7 @@ const TeacherList = () => {
             <RegisterTeacher />
             <Logout />
           </div>
+          <Resign email={email} password={password} />
           <div className='students_i_guess'>
             <h1>Teachers</h1>
             <ul className='stud_list'>

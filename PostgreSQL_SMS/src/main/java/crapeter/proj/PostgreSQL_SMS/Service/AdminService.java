@@ -59,6 +59,12 @@ public class AdminService {
     teacherRepo.deleteById(teacherRepo.findByEmail(email).getTeacherID());
   }
 
+  public void fireAdmin(String email, String password) {
+    if (authenticateAdmin(email, password)) {
+      adminRepo.delete(adminRepo.findByEmail(email));
+    }
+  }
+
   public void moveClassToNewTeacher(String oldTeacherEmail, String newTeacherEmail) {
     Long oldTeacherID = teacherRepo.findByEmail(oldTeacherEmail).getTeacherID();
     Long newTeacherID = teacherRepo.findByEmail(newTeacherEmail).getTeacherID();

@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
 
-const Logout = () => {
+const Resign = () => {
   const nav = useNavigate()
 
   const boardLogin = (event) => {
@@ -36,4 +36,4 @@ const Logout = () => {
   )
 }
 
-export default Logout
+export default Resign

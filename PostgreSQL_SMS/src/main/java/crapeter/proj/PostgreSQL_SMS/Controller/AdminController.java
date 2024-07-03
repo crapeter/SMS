@@ -52,14 +52,20 @@ public class AdminController {
   }
 
   @DeleteMapping("/move/class")
-  public ResponseEntity<String> removeTeacher(@RequestParam String oldTeacherEmail, @RequestParam String newTeacherEmail) {
+  public ResponseEntity<String> moveClass(@RequestParam String oldTeacherEmail, @RequestParam String newTeacherEmail) {
     adminService.moveClassToNewTeacher(oldTeacherEmail, newTeacherEmail);
     return ResponseEntity.ok("Class moved successfully");
   }
 
   @DeleteMapping("/remove")
-  public ResponseEntity<String> removeAdmin(@RequestParam String email, @RequestParam String password) {
+  public ResponseEntity<String> removeTeacher(@RequestParam String email, @RequestParam String password) {
     adminService.fireTeacher(email, password);
+    return ResponseEntity.ok("Admin removed successfully");
+  }
+
+  @DeleteMapping("/remove/admin")
+  public ResponseEntity<String> removeAdmin(@RequestParam String email, @RequestParam String password) {
+    adminService.fireAdmin(email, password);
     return ResponseEntity.ok("Admin removed successfully");
   }
 }

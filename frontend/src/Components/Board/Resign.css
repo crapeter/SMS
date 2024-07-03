@@ -1,5 +1,5 @@
-.register_admin_button {
-  background-color: #c90000;
+.actual_resign_button_for_real {
+  background-color: black;
   border: none;
   border-radius: 10px;
   color: white;
@@ -9,4 +9,8 @@
   padding: 12px 24px;
   margin: 10px;
   cursor: pointer;
+}
+
+.actual_resign_button_for_real:hover {
+  background-color: black;
 }
