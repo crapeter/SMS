@@ -42,11 +42,15 @@ public class AdminService {
   }
 
   public Admin hireAdmin(Admin admin) {
+    if (admin == null)
+      return null;
     admin.setPassword(encrypt(admin.getPassword()));
     return adminRepo.save(admin);
   }
 
   public Teacher hireTeacher(Teacher teacher) {
+    if (teacher == null)
+      return null;
     teacher.setPassword(encrypt(teacher.getPassword()));
     return teacherRepo.save(teacher);
   }
