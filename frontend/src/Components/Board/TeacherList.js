@@ -70,7 +70,10 @@ const TeacherList = () => {
                     onClick={() => handleClick(teacher)}
                     style={{ cursor: 'pointer', margin: '5px', width: '20px', height: '20px' }}
                   />
-                  <p>{teacher.firstName} {teacher.lastName}, {teacher.numOfStudents} students currently enrolled</p>
+                  <p>
+                    {teacher.firstName} {teacher.lastName}, {teacher.numOfStudents}{" "}
+                    {teacher.numOfStudents === 1 ? "student" : "students"} currently enrolled
+                  </p>
                 </li>
               ))}
             </ul>

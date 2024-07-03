@@ -32,7 +32,13 @@ public class AdminService {
   private static final String INIT_VECTOR = "abcdef9876543210";
 
   public List<TeacherInfoDTO> getTeachers() {
-    return InfoDTO_Service.removeTeachersPrivateInfo(teacherRepo.findAll());
+    List<Teacher> teachers = teacherRepo.findAll();
+    List<TeacherInfoDTO> teacherDTO =  InfoDTO_Service.removeTeachersPrivateInfo(teacherRepo.findAll());
+    for (Teacher teacher : teachers) {
+      int size = studentRepo.findByTeacher_TeacherID(teacher.getTeacherID()).size();
+      teacherDTO.get(teachers.indexOf(teacher)).setNumOfStudents(size);
+    }
+    return teacherDTO;
   }
 
   public Admin hireAdmin(Admin admin) {
