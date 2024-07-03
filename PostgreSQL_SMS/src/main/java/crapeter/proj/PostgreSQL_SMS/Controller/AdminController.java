@@ -56,4 +56,10 @@ public class AdminController {
     adminService.moveClassToNewTeacher(oldTeacherEmail, newTeacherEmail);
     return ResponseEntity.ok("Class moved successfully");
   }
+
+  @DeleteMapping("/remove")
+  public ResponseEntity<String> removeAdmin(@RequestParam String email, @RequestParam String password) {
+    adminService.fireTeacher(email, password);
+    return ResponseEntity.ok("Admin removed successfully");
+  }
 }

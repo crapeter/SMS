@@ -55,10 +55,8 @@ public class AdminService {
     return adminRepo.findByEmail(email).getPassword().equals(encrypt(password));
   }
 
-  public void fireAdmin(String email, String password) {
-    if (authenticateAdmin(email, password)) {
-      adminRepo.deleteByEmail(email);
-    }
+  public void fireTeacher(String email, String password) {
+    teacherRepo.deleteById(teacherRepo.findByEmail(email).getTeacherID());
   }
 
   public void moveClassToNewTeacher(String oldTeacherEmail, String newTeacherEmail) {

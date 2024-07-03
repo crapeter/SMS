@@ -28,7 +28,14 @@ const TeacherList = () => {
   }
 
   const handleDelete = () => {
-    if (replacementEmail) {
+    if (selectedTeacher.numOfStudents === 0) {
+      axios.delete(`/api/admin/remove?email=${selectedTeacher.email}&password=${selectedTeacher.password}`)
+        .then(_ => {
+          setSelectedTeacher(null);
+          window.location.reload()
+        })
+        .catch(e => alert(e))
+    } else if (replacementEmail) {
       axios.delete(`/api/admin/move/class?oldTeacherEmail=${selectedTeacher.email}&newTeacherEmail=${replacementEmail}`)
         .then(_ => {
           setSelectedTeacher(null)
@@ -98,7 +105,7 @@ const TeacherList = () => {
               <Form.Group controlId="formBasicUsername">
                 <Form.Control
                   type="email"
-                  placeholder="Enter the replacement email"
+                  placeholder="Replace Email (non required if they don't have students)"
                   value={replacementEmail}
                   onChange={(e) => setReplacementEmail(e.target.value)}
                 />
