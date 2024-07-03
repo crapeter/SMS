@@ -7,4 +7,5 @@ public class TeacherInfoDTO {
   private String firstName;
   private String lastName;
   private String email;
+  private int numOfStudents;
 }

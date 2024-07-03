@@ -1,5 +1,6 @@
 package crapeter.proj.PostgreSQL_SMS.Controller;
 
+import crapeter.proj.PostgreSQL_SMS.Model.Admin;
 import crapeter.proj.PostgreSQL_SMS.Model.Teacher;
 import crapeter.proj.PostgreSQL_SMS.Model.TeacherInfoDTO;
 import crapeter.proj.PostgreSQL_SMS.Service.AdminService;
@@ -9,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/admin")
+@RestController
+@RequestMapping("/admin")
 public class AdminController {
   @Autowired
   private AdminService adminService;
@@ -20,7 +22,16 @@ public class AdminController {
     return ResponseEntity.ok(authenticated);
   }
 
-  @PostMapping("/add")
+  @PostMapping("/add/admin")
+  public ResponseEntity<String> addAdmin(@RequestBody Admin admin) {
+    Admin newAdmin = adminService.hireAdmin(admin);
+    if (newAdmin != null) {
+      return ResponseEntity.ok("Admin added successfully");
+    }
+    return ResponseEntity.notFound().build();
+  }
+
+  @PostMapping("/add/teacher")
   public ResponseEntity<String> addTeacher(@RequestBody Teacher teacher) {
     Teacher newTeacher = adminService.hireTeacher(teacher);
     if (newTeacher != null) {

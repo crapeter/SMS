@@ -6,6 +6,11 @@ import "./Login.css"
 const Logout = () => {
   const nav = useNavigate()
 
+  const boardLogin = (event) => {
+    event.preventDefault()
+    nav("/admin/login")
+  }
+
   const teacherLogin = (event) => {
     event.preventDefault()
     nav("/teacher/login")
@@ -18,6 +23,9 @@ const Logout = () => {
 
   return (
     <div className="login_button">
+      <Button onClick={boardLogin} className="actual_login_button_for_real">
+        Admin Login
+      </Button>
       <Button onClick={teacherLogin} className="actual_login_button_for_real">
         Teacher Login
       </Button>

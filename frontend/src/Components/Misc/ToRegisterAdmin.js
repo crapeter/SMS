@@ -1,24 +1,19 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import { useAuth } from "./AuthContext"
-import "./Logout.css"
+import "./ToRegisterAdmin.css"
 
 const Logout = () => {
-  const { setIsLoggedIn, setIsAdmin, setIsBoard } = useAuth()
   const nav = useNavigate()
 
   const handleLogout = (event) => {
     event.preventDefault()
-    setIsLoggedIn(false)
-    setIsAdmin(false)
-    setIsBoard(false)
-    nav("/")
+    nav(`/register/admin`)
   }
 
   return (
     <div className="logout_button">
-      <button onClick={handleLogout} className="actual_logout_button">
-        Log out
+      <button onClick={handleLogout} className="register_admin_button">
+        Register an Admin
       </button>
     </div>
   )

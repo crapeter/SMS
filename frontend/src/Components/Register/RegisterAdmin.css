@@ -1,0 +1,12 @@
+.top_teach_div {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-image: linear-gradient(to bottom right, red, blue);
+}
+
+.RegisterAdmin {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+}

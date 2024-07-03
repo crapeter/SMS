@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom"
 import { Form } from 'react-bootstrap';
 import axios from 'axios'
-import './RegisterTeacher.css'
+import './RegisterAdmin.css'
 
-const RegisterTeacher = () => {
+const RegisterAdmin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [FirstName, setFirstName] = useState('')
@@ -13,7 +13,7 @@ const RegisterTeacher = () => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    axios.post(`/api/admin/add/teacher`, {
+    axios.post(`/api/admin/add/admin`, {
       FirstName: FirstName,
       LastName: LastName,
       email: email,
@@ -24,19 +24,20 @@ const RegisterTeacher = () => {
   }
 
   const goBack = () => {
-    nav("/admin/list")
+    nav("/admin/login")
   }
 
   return (
     <div className='top_teach_div'>
-      <div className='RegisterTeacher'>
-        <h2 className='login_text'>Register new teacher</h2>
+      <div className='RegisterAdmin'>
+        <h2 className='login_text'>Register new admin</h2>
         <Form>
           <Form.Group controlId="formBasicFirstName">
             <Form.Control
               className='student_input'
               type="text"
-              placeholder="Enter teachers first name"
+              placeholder="Enter admins first name"
+              value={FirstName}
               onChange={e => setFirstName(e.target.value)}
             />
           </Form.Group>
@@ -45,7 +46,8 @@ const RegisterTeacher = () => {
             <Form.Control
               className='student_input'
               type="text"
-              placeholder="Enter teachers last name"
+              placeholder="Enter admins last name"
+              value={LastName}
               onChange={e => setLastName(e.target.value)}
             />
           </Form.Group>
@@ -55,6 +57,7 @@ const RegisterTeacher = () => {
               className='student_input'
               type="email"
               placeholder="Enter email"
+              value={email}
               onChange={e => setEmail(e.target.value)}
             />
           </Form.Group>
@@ -64,6 +67,7 @@ const RegisterTeacher = () => {
               className='student_input'
               type="password"
               placeholder="Enter password"
+              value={password}
               onChange={e => setPassword(e.target.value)}
             />
           </Form.Group>
@@ -79,4 +83,4 @@ const RegisterTeacher = () => {
   )
 }
 
-export default RegisterTeacher
+export default RegisterAdmin

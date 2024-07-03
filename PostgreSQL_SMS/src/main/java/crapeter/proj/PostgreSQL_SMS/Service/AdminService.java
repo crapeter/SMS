@@ -1,5 +1,6 @@
 package crapeter.proj.PostgreSQL_SMS.Service;
 
+import crapeter.proj.PostgreSQL_SMS.Model.Admin;
 import crapeter.proj.PostgreSQL_SMS.Model.Student;
 import crapeter.proj.PostgreSQL_SMS.Model.Teacher;
 import crapeter.proj.PostgreSQL_SMS.Model.TeacherInfoDTO;
@@ -34,13 +35,24 @@ public class AdminService {
     return InfoDTO_Service.removeTeachersPrivateInfo(teacherRepo.findAll());
   }
 
-  public boolean authenticateAdmin(String email, String password) {
-    return adminRepo.findByEmail(email).getPassword().equals(encrypt(password));
+  public Admin hireAdmin(Admin admin) {
+    admin.setPassword(encrypt(admin.getPassword()));
+    return adminRepo.save(admin);
   }
 
   public Teacher hireTeacher(Teacher teacher) {
     teacher.setPassword(encrypt(teacher.getPassword()));
     return teacherRepo.save(teacher);
+  }
+
+  public boolean authenticateAdmin(String email, String password) {
+    return adminRepo.findByEmail(email).getPassword().equals(encrypt(password));
+  }
+
+  public void fireAdmin(String email, String password) {
+    if (authenticateAdmin(email, password)) {
+      adminRepo.deleteByEmail(email);
+    }
   }
 
   public void moveClassToNewTeacher(String oldTeacherEmail, String newTeacherEmail) {
@@ -50,7 +62,7 @@ public class AdminService {
     for (Student student : students) {
       student.setTeacher(teacherRepo.findById(newTeacherID).orElse(null));
     }
-    teacherRepo.deleteByEmail(oldTeacherEmail);
+    teacherRepo.delete(teacherRepo.findByEmail(oldTeacherEmail));
   }
 
   public void moveStudentToNewTeacher(String newTeacherEmail, String username) {
