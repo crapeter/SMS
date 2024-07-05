@@ -32,6 +32,7 @@ const Logout = () => {
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>
+            Resign as an Admin
           </Modal.Title>
         </Modal.Header>
 
