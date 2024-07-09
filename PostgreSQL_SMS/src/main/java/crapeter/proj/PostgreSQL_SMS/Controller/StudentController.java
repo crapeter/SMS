@@ -2,7 +2,6 @@ package crapeter.proj.PostgreSQL_SMS.Controller;
 
 import crapeter.proj.PostgreSQL_SMS.Model.StudentInfoDTO;
 import crapeter.proj.PostgreSQL_SMS.Service.StudentService;
-import crapeter.proj.PostgreSQL_SMS.Service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +11,6 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
   @Autowired
   private StudentService studentService;
-
-  @Autowired
-  private TeacherService teacherService;
 
   @GetMapping("/login/{username}/{password}")
   public ResponseEntity<Boolean> login(@PathVariable String username, @PathVariable String password) {
