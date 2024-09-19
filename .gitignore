@@ -133,3 +133,4 @@ dist
 PostgreSQL_SMS/.gradle/
 node_modules/
 frontend/node_modules/
+PostgreSQL_SMS/src/main/resources/.env

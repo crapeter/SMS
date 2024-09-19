@@ -19,6 +19,7 @@ const RegisterStudent = () => {
         setTeacherID(response.data)
       })
       .catch(e => alert(e))
+      // eslint-disable-next-line
   }, [])
 
   const handleLogin = (e) => {

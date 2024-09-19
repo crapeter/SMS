@@ -13,6 +13,7 @@ const ListStudents = () => {
 
   useEffect(() => {
     getStudents()
+    // eslint-disable-next-line
   }, [])
 
   const getStudents = () => {
