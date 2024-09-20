@@ -27,9 +27,9 @@ public class AdminService {
   @Autowired
   private StudentRepo studentRepo;
 
-  private static final String ALGORITHM = "AES/CBC/PKCS5Padding";
-  private static final String SECRET_KEY = "0123456789abcdef";
-  private static final String INIT_VECTOR = "abcdef9876543210";
+  private static final String ALGORITHM = System.getenv("ALGORITHM");
+  private static final String SECRET_KEY = System.getenv("SECRET_KEY");
+  private static final String INIT_VECTOR = System.getenv("INIT_VECTOR");
 
   public List<TeacherInfoDTO> getTeachers() {
     List<Teacher> teachers = teacherRepo.findAll();
