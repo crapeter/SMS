@@ -44,6 +44,27 @@ const UpdateGrades = () => {
     let his = historyGrade.trim() === '' ? student.historyGrade : historyGrade
     let read = readingGrade.trim() === '' ? student.readingGrade : readingGrade
 
+    if (math > 100 || math < 0) {
+      alert("Math grade must be between 0 and 100")
+      return
+    }
+    if (ela > 100 || ela < 0) {
+      alert("ELA grade must be between 0 and 100")
+      return
+    }
+    if (sci > 100 || sci < 0) {
+      alert("Science grade must be between 0 and 100")
+      return
+    }
+    if (his > 100 || his < 0) {
+      alert("History grade must be between 0 and 100")
+      return
+    }
+    if (read > 100 || read < 0) {
+      alert("Reading grade must be between 0 and 100")
+      return
+    }
+
     axios.post(`/api/teacher/update/grades/${email}/${student.username}`, {
       math: math,
       ela: ela,
